@@ -17,7 +17,7 @@ get_run_url() {
 
   echo "${body}"
 
-  url=$(echo "$body" | jq .jobs | jq .[] | jq .check_run_url)
+  url=$(echo "$body" | jq .jobs | jq .[] | jq .html_url)
 
   echo "${url}"
 }
