@@ -1,13 +1,13 @@
-name: 'Get Check Run URL'
-description: 'Get the check URL link for a run'
+name: 'Get Run Metadata'
+description: 'Get various metadata about the run'
 branding:
   icon: 'link'
   color: 'green'
 outputs:
   url:
-    description: "Direct HTML link"
+    description: "Direct HTML link to check page"
   id:
-    description: "ID of the check suite run"
+    description: "ID of the check suite"
   pr:
     description: "The PR number"
   started_at:
