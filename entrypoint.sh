@@ -17,8 +17,8 @@ get_run_url() {
 
   echo "${body}"
 
-  url=$(echo "$body" | jq .jobs | jq .[] | jq .html_url)
-  id=$(echo "$body" | jq .jobs | jq .[] | jq .id)
+  url=$(echo "$body" | jq .jobs | jq .[-1] | jq .html_url)
+  id=$(echo "$body" | jq .jobs | jq .[-1] | jq .id)
 
   echo ::set-output name=url::${url}
   echo ::set-output name=id::${id}
