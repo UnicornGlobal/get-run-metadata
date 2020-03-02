@@ -12,6 +12,10 @@ outputs:
     description: "The PR number"
   started_at:
     description: "The time the run started"
+  sha7:
+    description: "SHA7 version of the hash"
+  sha8:
+    description: "SHA8 version of the hash"
 runs:
   using: 'docker'
   image: 'Dockerfile'

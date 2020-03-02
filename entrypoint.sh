@@ -27,11 +27,14 @@ get_run_url() {
   url=$(echo "$body" | jq .jobs | jq .[-1] | jq .html_url)
   id=$(echo "$body" | jq .jobs | jq .[-1] | jq .id)
   start=$(echo "$body" | jq .jobs | jq .[-1] | jq -r .started_at)
+  sha=$(echo "$body" | jq .jobs | jq .[-1] | jq -r .head_sha)
 
   echo ::set-output name=url::${url}
   echo ::set-output name=id::${id}
   echo ::set-output name=pr::${number}
   echo ::set-output name=started_at::$start
+  echo ::set-output name=sha7::$(echo ${sha} | cut -c1-7)
+  echo ::set-output name=sha8::$(echo ${sha} | cut -c1-8)
 }
 
 get_run_url
