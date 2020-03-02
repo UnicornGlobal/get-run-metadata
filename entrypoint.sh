@@ -26,10 +26,12 @@ get_run_url() {
 
   url=$(echo "$body" | jq .jobs | jq .[-1] | jq .html_url)
   id=$(echo "$body" | jq .jobs | jq .[-1] | jq .id)
+  start=$(echo "$body" | jq .jobs | jq .[-1] | jq .started_at)
 
   echo ::set-output name=url::${url}
   echo ::set-output name=id::${id}
   echo ::set-output name=pr::${number}
+  echo ::set-output name=started_at::${start}
 }
 
 get_run_url
