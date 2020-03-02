@@ -15,6 +15,8 @@ AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 get_run_url() {
   body=$(curl -sSL -H "${AUTH_HEADER}" -H "${API_HEADER}" "${URI}/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs")
 
+  echo "${body}"
+
   url=$(echo "$body" | jq .jobs | jq .[] | jq .check_run_url)
 
   echo "${url}"
