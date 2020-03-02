@@ -1,0 +1,10 @@
+name: 'Get Check Run URL'
+description: 'Get the check URL link for a run'
+branding:
+  icon: 'link'
+  color: 'green'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.GITHUB_TOKEN }}
