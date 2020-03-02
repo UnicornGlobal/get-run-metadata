@@ -6,6 +6,11 @@ if [[ -z "${GITHUB_REPOSITORY}" ]]; then
   exit 1
 fi
 
+if [[ -z "$GITHUB_EVENT_PATH" ]]; then
+  echo "The env variable GITHUB_EVENT_PATH is required."
+  exit 1
+fi
+
 GITHUB_TOKEN="$1"
 
 URI="https://api.github.com"
@@ -13,6 +18,8 @@ API_HEADER="Accept: application/vnd.github.v3+json"
 AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 
 get_run_url() {
+  number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+
   body=$(curl -sSL -H "${AUTH_HEADER}" -H "${API_HEADER}" "${URI}/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs")
 
   echo "${body}"
@@ -22,6 +29,7 @@ get_run_url() {
 
   echo ::set-output name=url::${url}
   echo ::set-output name=id::${id}
+  echo ::set-output name=pr::${number}
 }
 
 get_run_url
