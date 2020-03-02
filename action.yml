@@ -8,6 +8,10 @@ outputs:
     description: "Direct HTML link"
   id:
     description: "ID of the check suite run"
+  pr:
+    description: "The PR number"
+  started_at:
+    description: "The time the run started"
 runs:
   using: 'docker'
   image: 'Dockerfile'
