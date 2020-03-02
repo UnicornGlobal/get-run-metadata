@@ -33,8 +33,9 @@ get_run_url() {
   echo ::set-output name=id::${id}
   echo ::set-output name=pr::${number}
   echo ::set-output name=started_at::$start
-  echo ::set-output name=sha7::$(echo ${sha} | cut -c1-7)
-  echo ::set-output name=sha8::$(echo ${sha} | cut -c1-8)
+  echo ::set-output name=head_sha::${sha}
+  echo ::set-output name=head_sha7::$(echo ${sha} | cut -c1-7)
+  echo ::set-output name=head_sha8::$(echo ${sha} | cut -c1-8)
 }
 
 get_run_url
