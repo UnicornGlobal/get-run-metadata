@@ -31,7 +31,7 @@ get_run_url() {
   echo ::set-output name=url::${url}
   echo ::set-output name=id::${id}
   echo ::set-output name=pr::${number}
-  echo ::set-output name=started_at::${start}
+  echo ::set-output name=started_at::$start
 }
 
 get_run_url
