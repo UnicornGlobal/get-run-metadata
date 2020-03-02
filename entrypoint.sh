@@ -18,8 +18,10 @@ get_run_url() {
   echo "${body}"
 
   url=$(echo "$body" | jq .jobs | jq .[] | jq .html_url)
+  id=$(echo "$body" | jq .jobs | jq .[] | jq .id)
 
-  echo "${url}"
+  echo ::set-output name=url::${url}
+  echo ::set-output name=id::${id}
 }
 
 get_run_url

@@ -3,6 +3,11 @@ description: 'Get the check URL link for a run'
 branding:
   icon: 'link'
   color: 'green'
+outputs:
+  url:
+    description: "Direct HTML link"
+  id:
+    description: "ID of the check suite run"
 runs:
   using: 'docker'
   image: 'Dockerfile'
