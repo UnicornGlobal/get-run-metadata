@@ -1,7 +1,7 @@
 name: 'Get Run Metadata'
 description: 'Get various metadata about the run'
 branding:
-  icon: 'link'
+  icon: 'book'
   color: 'green'
 outputs:
   url:
